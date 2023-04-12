@@ -1,24 +1,25 @@
 "use strict";
+
 const { v4: uuidv4 } = require("uuid");
 
 // Arrange
-const reference = uuidv4();
-const options = {
-  amount: "2000",
+let reference = uuidv4();
+let options = {
+  externalId: "6353636",
+  amount: "5.0",
   currency: "EUR",
-  externalId: "12345678",
   payee: {
     partyIdType: "MSISDN",
-    partyId: "222222",
+    partyId: "0248888736",
   },
-  payerMessage: "Payer message here",
-  payeeNote: "Payee note here",
+  payerMessage: "Pay for product A",
+  payeeNote: "payer note",
 };
 
-describe("Remittance - Transfer", () => {
+describe("Disbursement - Transfer", () => {
   it("should raise a request for transfer", async () => {
     // Act
-    const response = await global.REMITTANCE.transfer(
+    const response = await global.DISBURSEMENT.transfer(
       reference,
       options
     );
@@ -32,13 +33,12 @@ describe("Remittance - Transfer", () => {
 });
 
 
-describe("Remittance - Request To Pay Delivery Notification", () => {
+describe("Disbursement - Request To Pay Delivery Notification", () => {
   it("should raise a notification to a given request for transfer", async () => {
     // Act
-    const response = await global.REMITTANCE.requestToPayDeliveryNotification(
+    const response = await global.DISBURSEMENT.requestToPayDeliveryNotification(
       reference,
-      "Transferred Successfully!!!",
-      'EN'
+      "Transferred Successfully!!!"
     );
 
     // Assert
@@ -49,10 +49,10 @@ describe("Remittance - Request To Pay Delivery Notification", () => {
 });
 
 
-describe("Remittance - Transfer Status", () => {
+describe("Disbursement - Transfer Status", () => {
   it("should check status of a given request for transfer", async () => {
     // Act
-    const response = await global.REMITTANCE.getTransferStatus(
+    const response = await global.DISBURSEMENT.getTransferStatus(
       reference
     );
 
@@ -61,7 +61,7 @@ describe("Remittance - Transfer Status", () => {
     expect(response.statusText).toBe("OK");
     expect(response.data).toHaveProperty("financialTransactionId");
     expect(response.data).toHaveProperty("externalId", options.externalId);
-    expect(response.data).toHaveProperty("amount", "2000");
+    expect(response.data).toHaveProperty("amount", "5");
     expect(response.data).toHaveProperty("currency", options.currency);
     expect(response.data).toHaveProperty("payee", options.payee);
     expect(response.data).toHaveProperty("payerMessage", options.payerMessage);

@@ -1,7 +1,7 @@
 "use strict";
 
 describe("Collection - Get User Details", () => {
-  it("should get details of an existing sandbox user", async () => {
+  it("should get details of an existing collection user", async () => {
     // Act
 
     const response = await global.COLLECTION.getBasicUserinfo(global.testMsisdn);
@@ -19,16 +19,3 @@ describe("Collection - Get User Details", () => {
     expect(response.data).toHaveProperty("updated_at");
   });
 });
-/*
-200 - OK
-{
-  sub: '0',
-  name: 'Sand Box',
-  given_name: 'Sand',
-  family_name: 'Box',
-  birthdate: '1976-08-13',
-  locale: 'sv_SE',
-  gender: 'MALE',
-  updated_at: 1681297060
-}
- */

@@ -1,11 +1,10 @@
 "use strict";
 
-describe("GetBasicUserinfo", () => {
-
-  it("should fetch basic user info from the API", async () => {
-
+describe("Disbursement - Get User Details", () => {
+  it("should get details of an existing disbursement user", async () => {
     // Act
-    const response = await global.REMITTANCE.getBasicUserinfo(global.testMsisdn);
+
+    const response = await global.DISBURSEMENT.getBasicUserinfo(global.testMsisdn);
 
     // Assert
     expect(response.status).toBe(200);
