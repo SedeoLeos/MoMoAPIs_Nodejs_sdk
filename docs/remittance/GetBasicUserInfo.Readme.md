@@ -59,7 +59,7 @@ const GetBasicUserInfo = async (msisdn, debug = false) => {
 /**
  * Invoke the function
  */
-const msidsn = 0248888736;
+const msidsn = "0248888736";
 
 GetBasicUserInfo(msidsn, false, true);
 ```

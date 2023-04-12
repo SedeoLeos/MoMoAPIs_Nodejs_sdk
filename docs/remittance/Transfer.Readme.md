@@ -81,7 +81,7 @@ const requestObject = {
   }
 };
 
-RequesttoPayDeliveryNotification(requestObject, false, true);
+Transfer(requestObject, false, true);
 ```
 
 ### Example Output - Callback

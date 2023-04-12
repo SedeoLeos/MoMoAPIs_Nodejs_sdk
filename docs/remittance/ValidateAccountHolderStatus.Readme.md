@@ -63,7 +63,7 @@ const ValidateAccountHolderStatus = async (requestObject, debug = false) => {
  * Invoke the function
  */
 const requestObject = {
-  accountHolderId: 0248888736,
+  accountHolderId: "0248888736",
   accountHolderIdType: "msisdn"
 };
 
