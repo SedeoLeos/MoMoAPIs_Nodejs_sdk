@@ -3,7 +3,6 @@
 describe("Disbursement - Get User Info", () => {
   it("should get details of an existing collection user", async () => {
     // Act
-
     const response = await global.DISBURSEMENT.getBasicUserinfo(global.testMsisdn);
 
     // Assert
@@ -23,7 +22,6 @@ describe("Disbursement - Get User Info", () => {
 describe("Disbursement - Get User Info With Consent", () => {
   it("should get details of an existing collection user with consent", async () => {
     // Act
-
     const response = await global.DISBURSEMENT.getUserInfoWithConsent(global.testMsisdn);
 
     // Assert

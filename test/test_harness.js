@@ -40,7 +40,7 @@ const collectionEnvironment = () => {
 };
 
 const disbursementEnvironment = () => {
-  return new core.Environment(
+  return new momoApi.core.Environment(
     global.xReferenceIdDisbursement,
     process.env.ENV_TYPE,
     process.env.CALLBACK_URL,
@@ -55,7 +55,7 @@ const disbursementEnvironment = () => {
 };
 
 const remittanceEnvironment = () => {
-  return new core.Environment(
+  return new momoApi.core.Environment(
     global.xReferenceIdRemittance,
     process.env.ENV_TYPE,
     process.env.CALLBACK_URL,

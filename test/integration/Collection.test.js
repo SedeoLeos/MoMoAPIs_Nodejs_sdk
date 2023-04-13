@@ -1,11 +1,11 @@
 "use strict";
 
 /**
- * MoMoApi sandbox dependency
+ * MoMoApi collection dependency
  */
 const collection = require("../test_harness").collection();
-const { v4: uuidv4 } = require("uuid");
 
+const { v4: uuidv4 } = require("uuid");
 
 // Arrange
 let reference = uuidv4();
@@ -222,12 +222,21 @@ const requestToPay = async (reference, options, debug = false) => {
   }
 };
 
-const requestToPayDeliveryNotification = async (reference, message, language, debug = false) => {
+const requestToPayDeliveryNotification = async (
+  reference,
+  message,
+  language,
+  debug = false
+) => {
   try {
     /**
      * Call API with your instance and get a response for your call
      */
-    const response = await collection.requestToPayDeliveryNotification(reference, message, language);
+    const response = await collection.requestToPayDeliveryNotification(
+      reference,
+      message,
+      language
+    );
 
     if (debug) {
       console.log("Response Status: ", response.status);
@@ -351,7 +360,9 @@ const requestToWithdrawTransactionStatus = async (reference, debug = false) => {
     /**
      * Call API with your instance and get a response for your call
      */
-    const response = await collection.requestToWithdrawTransactionStatus(reference);
+    const response = await collection.requestToWithdrawTransactionStatus(
+      reference
+    );
 
     if (debug) {
       console.log("Response Status: ", response.status);
@@ -377,12 +388,19 @@ const requestToWithdrawTransactionStatus = async (reference, debug = false) => {
   }
 };
 
-const validateAccountHolderStatus = async (accountHolderId, accountHolderIdType, debug = false) => {
+const validateAccountHolderStatus = async (
+  accountHolderId,
+  accountHolderIdType,
+  debug = false
+) => {
   try {
     /**
      * Call API with your instance and get a response for your call
      */
-    const response = await collection.validateAccountHolderStatus(accountHolderId, accountHolderIdType);
+    const response = await collection.validateAccountHolderStatus(
+      accountHolderId,
+      accountHolderIdType
+    );
 
     if (debug) {
       console.log("Response Status: ", response.status);
@@ -525,9 +543,7 @@ describe("Collection - Request To Pay Delivery Notification", () => {
 describe("Collection - Request To Pay Status", () => {
   it("should check status of a given request for payment", async () => {
     // Act
-    const response = await requestToPayTransactionStatus(
-      reference
-    );
+    const response = await requestToPayTransactionStatus(reference);
 
     // Assert
     expect(response.status).toBe(200);
@@ -537,7 +553,10 @@ describe("Collection - Request To Pay Status", () => {
     expect(response.data).toHaveProperty("amount", "5");
     expect(response.data).toHaveProperty("currency", optionsPay.currency);
     expect(response.data).toHaveProperty("payer", optionsPay.payer);
-    expect(response.data).toHaveProperty("payerMessage", optionsPay.payerMessage);
+    expect(response.data).toHaveProperty(
+      "payerMessage",
+      optionsPay.payerMessage
+    );
     expect(response.data).toHaveProperty("payeeNote", optionsPay.payeeNote);
     expect(response.data).toHaveProperty("status", "SUCCESSFUL");
   });
@@ -546,10 +565,7 @@ describe("Collection - Request To Pay Status", () => {
 describe("Collection - Request To Withdraw V1", () => {
   it("should raise a request to withdraw version 1", async () => {
     // Act
-    const response = await requestToWithdrawV1(
-      referenceV1,
-      optionsWithdraw
-    );
+    const response = await requestToWithdrawV1(referenceV1, optionsWithdraw);
 
     // Assert
     expect(response.status).toBe(202);
@@ -562,20 +578,27 @@ describe("Collection - Request To Withdraw V1", () => {
 describe("Collection - Request To Withdraw V1 Transaction Status", () => {
   it("should check status of a given request to withdraw v1", async () => {
     // Act
-    const response = await requestToWithdrawTransactionStatus(
-      referenceV1
-    );
+    const response = await requestToWithdrawTransactionStatus(referenceV1);
 
     // Assert
     expect(response.status).toBe(200);
     expect(response.statusText).toBe("OK");
     expect(response.data).toHaveProperty("financialTransactionId");
-    expect(response.data).toHaveProperty("externalId", optionsWithdraw.externalId);
+    expect(response.data).toHaveProperty(
+      "externalId",
+      optionsWithdraw.externalId
+    );
     expect(response.data).toHaveProperty("amount", "50");
     expect(response.data).toHaveProperty("currency", optionsWithdraw.currency);
     expect(response.data).toHaveProperty("payer", optionsWithdraw.payer);
-    expect(response.data).toHaveProperty("payerMessage", optionsWithdraw.payerMessage);
-    expect(response.data).toHaveProperty("payeeNote", optionsWithdraw.payeeNote);
+    expect(response.data).toHaveProperty(
+      "payerMessage",
+      optionsWithdraw.payerMessage
+    );
+    expect(response.data).toHaveProperty(
+      "payeeNote",
+      optionsWithdraw.payeeNote
+    );
     expect(response.data).toHaveProperty("status", "SUCCESSFUL");
   });
 });
@@ -583,10 +606,7 @@ describe("Collection - Request To Withdraw V1 Transaction Status", () => {
 describe("Collection - Request To Withdraw V2", () => {
   it("should raise a request to withdraw version 2", async () => {
     // Act
-    const response = await requestToWithdrawV2(
-      referenceV2,
-      optionsWithdraw
-    );
+    const response = await requestToWithdrawV2(referenceV2, optionsWithdraw);
 
     // Assert
     expect(response.status).toBe(202);
@@ -599,20 +619,27 @@ describe("Collection - Request To Withdraw V2", () => {
 describe("Collection - Request To Withdraw V2 Transaction Status", () => {
   it("should check status of a given request to withdraw v2", async () => {
     // Act
-    const response = await requestToWithdrawTransactionStatus(
-      referenceV2
-    );
+    const response = await requestToWithdrawTransactionStatus(referenceV2);
 
     // Assert
     expect(response.status).toBe(200);
     expect(response.statusText).toBe("OK");
     expect(response.data).toHaveProperty("financialTransactionId");
-    expect(response.data).toHaveProperty("externalId", optionsWithdraw.externalId);
+    expect(response.data).toHaveProperty(
+      "externalId",
+      optionsWithdraw.externalId
+    );
     expect(response.data).toHaveProperty("amount", "50");
     expect(response.data).toHaveProperty("currency", optionsWithdraw.currency);
     expect(response.data).toHaveProperty("payer", optionsWithdraw.payer);
-    expect(response.data).toHaveProperty("payerMessage", optionsWithdraw.payerMessage);
-    expect(response.data).toHaveProperty("payeeNote", optionsWithdraw.payeeNote);
+    expect(response.data).toHaveProperty(
+      "payerMessage",
+      optionsWithdraw.payerMessage
+    );
+    expect(response.data).toHaveProperty(
+      "payeeNote",
+      optionsWithdraw.payeeNote
+    );
     expect(response.data).toHaveProperty("status", "SUCCESSFUL");
   });
 });
