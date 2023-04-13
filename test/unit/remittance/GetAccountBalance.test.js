@@ -7,6 +7,7 @@ describe('GetAccountBalance', () => {
 
     // Assert
     expect(response.status).toBe(200);
-    expect(response.data).toHaveProperty('availableBalance', 'currency');
+    expect(response.data).toHaveProperty('availableBalance');
+    expect(response.data).toHaveProperty('currency', 'EUR');
   });
 });

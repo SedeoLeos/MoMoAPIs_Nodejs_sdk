@@ -21,7 +21,8 @@
   },
   "jest": {
     "testTimeout": 25000,
-    "setupFilesAfterEnv": ["./test/setup.js"]
+    "setupFilesAfterEnv": ["./test/setup.js"],
+    "testSequencer": "./test/testSequencer.js"
   },
   "directories": {
     "lib": "lib",
