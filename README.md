@@ -386,7 +386,7 @@ An integration test is basically a unit test: you call functions and check their
 ```
 $ npm install
 $ npm run test test/integration
-
+```
 
 ## Samples
 
