@@ -18,7 +18,7 @@ const GetBasicUserInfo = async (msisdn, debug = false) => {
     /**
      * Construct a request object and set desired parameters
      */
-    const remittance = new mmapi.Remittannce(Environment); 
+    const remittance = new mmapi.Remittance(Environment); 
     
     const response = await remittance.getBasicUserInfo(msisdn);
 

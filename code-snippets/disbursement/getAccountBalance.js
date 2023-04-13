@@ -7,9 +7,9 @@ const environment = new momoApi.core.Environment(
   process.env.CALLBACK_URL,
   {
     product_type: "disbursement",
-    api_key: process.env.API_KEY_COLLECTION,
-    subscription_key: process.env.API_KEY_COLLECTION,
-    subscription_key2: process.env.API_KEY_COLLECTION_2,
+    api_key: process.env.API_KEY_DISBURSEMENT,
+    subscription_key: process.env.SUBSCRIPTION_KEY_DISBURSEMENT,
+    subscription_key2: process.env.SUBSCRIPTION_KEY_DISBURSEMENT_2,
   }
 );
 

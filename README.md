@@ -111,17 +111,17 @@ let remittance = new momoApi.Remittance(environment);
     <td rowspan="3">Sandbox User Provisioning</td>
     <td><a href="docs/sandboxUserProvisioning/createUser.Readme.md">Creating an API user</a></td>
     <td>createUser</td>
-    <td>CallbackHost callbackHost</td>
+    <td>callbackHost: string</td>
   </tr>
   <tr>
     <td><a href="docs/sandboxUserProvisioning/getUserDetails.Readme.md">Get user details with referenceId</a></td>
     <td>getUserDetails</td>
-    <td>String referenceId</td>
+    <td>referenceId: string</td>
   </tr>
   <tr>
     <td><a href="docs/sandboxUserProvisioning/createApiKey.Readme.md">Create ApiKey for a user</a></td>
     <td>createApiKey</td>
-    <td>String referenceId</td>
+    <td>referenceId: string</td>
   </tr>
 </tbody>
 </table>
@@ -142,51 +142,51 @@ let remittance = new momoApi.Remittance(environment);
     <td rowspan="3">Request To Pay</td>
     <td><a href="docs/collection/requestToPay.Readme.md">Request To Pay</a></td>
     <td>requestToPay</td>
-    <td>RequestPay requestPay</td>
+    <td>reference: string, options: object</td>
   </tr>
   <tr>
     <td><a href="docs/collection/requestToPayTransactionStatus.Readme.md">Request To Pay Transaction Status</a></td>
     <td>requestToPayTransactionStatus</td>
-    <td>String referenceId</td>
+    <td>referenceId: string</td>
   </tr>
   <tr>
     <td><a href="docs/collection/requestToPayDeliveryNotification.Readme.md">Request To Pay Delivery Notification</a></td>
     <td>requestToPayDeliveryNotification</td>
-    <td>String referenceId, DeliveryNotification deliveryNotification, (optional)String deliveryNotificationHeader</td>
+    <td>referenceId: string, message: string, language: string|optional</td>
   </tr>
   <tr>
     <td rowspan="3">Request To Withdraw</td>
     <td><a href="docs/collection/requestToWithdrawV1.Readme.md">Request To Withdraw-V1</a></td>
     <td>requestToWithdrawV1</td>
-    <td>Withdraw withdraw</td>
+    <td>reference: string, options: object</td>
   </tr>
   <tr>
     <td><a href="docs/collection/requestToWithdrawV2.Readme.md">Request To Withdraw-V2</a></td>
     <td>requestToWithdrawV2</td>
-    <td>Withdraw withdraw</td>
+    <td>reference: string, options: object</td>
   </tr>
   <tr>
     <td><a href="docs/collection/requestToWithdrawTransactionStatus.Readme.md">Request To Withdraw Transaction Status</a></td>
     <td>requestToWithdrawTransactionStatus</td>
-    <td>String referenceId</td>
+    <td>referenceId: string</td>
   </tr>
   <tr>
     <td>Get UserInfo With Consent</td>
     <td><a href="docs/collection/getUserInfoWithConsent.Readme.md">Get UserInfo With Consent</a></td>
     <td>getUserInfoWithConsent</td>
-    <td>AccountHolder accountHolder, String scope, AccessType accessType</td>
+    <td>msisdn: string, scope: string|optional|default:profile, access_type: string|optional|default:offline, callbackURL: string|optional</td>
   </tr>
   <tr>
     <td>Get Basic Userinfo</td>
     <td><a href="docs/collection/getBasicUserinfo.Readme.md">Get Basic Userinfo</a></td>
     <td>getBasicUserinfo</td>
-    <td>String msisdn</td>
+    <td>msisdn: string</td>
   </tr>
   <tr>
     <td>Validate Account Holder Status</td>
     <td><a href="docs/collection/validateAccountHolderStatus.Readme.md">Validate Account Holder Status</a></td>
     <td>validateAccountHolderStatus</td>
-    <td>AccountHolder accountHolder</td>
+    <td>accountHolderID: string, accountHolderType: string</td>
   </tr>
   <tr>
     <td>Get Account Balance</td>
@@ -198,7 +198,7 @@ let remittance = new momoApi.Remittance(environment);
     <td>Get Account Balance In Specific Currency</td>
     <td><a href="docs/collection/getAccountBalanceInSpecificCurrency.Readme.md">Get Account Balance In Specific Currency</a></td>
     <td>getAccountBalanceInSpecificCurrency</td>
-    <td>String currency</td>
+    <td>currency: string</td>
   </tr>
 </tbody>
 </table>
@@ -219,68 +219,68 @@ let remittance = new momoApi.Remittance(environment);
     <td rowspan="2">Transfer</td>
     <td><a href="docs/disbursement/transfer.Readme.md">Transfer</a></td>
     <td>transfer</td>
-    <td>Transfer transfer</td>
+    <td>reference: string, options: object, callbackURL: string|optional</td>
   </tr>
   <tr>
     <td><a href="docs/disbursement/getTransferStatus.Readme.md">Get Transfer Status</a></td>
     <td>getTransferStatus</td>
-    <td>String referenceId</td>
+    <td>referenceId: string</td>
   </tr>
   <tr>
     <td>Request To Pay Delivery Notification</td>
     <td><a href="docs/disbursement/requestToPayDeliveryNotification.Readme.md">Request To Pay Delivery Notification</a></td>
     <td>requestToPayDeliveryNotification</td>
-    <td>String referenceId, DeliveryNotification deliveryNotification, (optional)String deliveryNotificationHeader</td>
+    <td>referenceId: string, message: string, language: string|optional</td>
   </tr>
   <tr>
     <td rowspan="3">Deposit</td>
     <td><a href="docs/disbursement/depositV1.Readme.md">Deposit-V1</a></td>
     <td>depositV1</td>
-    <td>Deposit deposit</td>
+    <td>reference: string, options: object</td>
   </tr>
   <tr>
     <td><a href="docs/disbursement/depositV2.Readme.md">Deposit-V2</a></td>
     <td>depositV2</td>
-    <td>Deposit deposit</td>
+    <td>reference: string, options: object</td>
   </tr>
   <tr>
     <td><a href="docs/disbursement/getDepositStatus.Readme.md">Get Deposit Status</a></td>
     <td>getDepositStatus</td>
-    <td>String referenceId</td>
+    <td>referenceId: string</td>
   </tr>
   <tr>
     <td rowspan="3">Refund</td>
     <td><a href="docs/disbursement/refundV1.Readme.md">Refund-V1</a></td>
     <td>refundV1</td>
-    <td>Refund refund</td>
+    <td>reference: string, options: object</td>
   </tr>
   <tr>
     <td><a href="docs/disbursement/refundV2.Readme.md">Refund-V2</a></td>
     <td>refundV2</td>
-    <td>Refund refund</td>
+    <td>reference: string, options: object</td>
   </tr>
   <tr>
     <td><a href="docs/disbursement/getRefundStatus.Readme.md">Get Refund Status</a></td>
     <td>getRefundStatus</td>
-    <td>String referenceId</td>
+    <td>referenceId: string</td>
   </tr>
   <tr>
     <td>Get UserInfo With Consent</td>
     <td><a href="docs/disbursement/getUserInfoWithConsent.Readme.md">Get UserInfo With Consent</a></td>
     <td>getUserInfoWithConsent</td>
-    <td>AccountHolder accountHolder, String scope, AccessType accessType</td>
+    <td>msisdn: string, scope: string|optional|default:profile, access_type: string|optional|default:offline, callbackURL: string|optional</td>
   </tr>
   <tr>
     <td>Get Basic Userinfo</td>
     <td><a href="docs/disbursement/getBasicUserinfo.Readme.md">Get Basic Userinfo</a></td>
     <td>getBasicUserinfo</td>
-    <td>String msisdn</td>
+    <td>msisdn: string</td>
   </tr>
   <tr>
     <td>Validate Account Holder Status</td>
     <td><a href="docs/disbursement/validateAccountHolderStatus.Readme.md">Validate Account Holder Status</a></td>
     <td>validateAccountHolderStatus</td>
-    <td>AccountHolder accountHolder</td>
+    <td>accountHolderID: string, accountHolderType: string</td>
   </tr>
   <tr>
     <td>Get Account Balance</td>
@@ -292,7 +292,7 @@ let remittance = new momoApi.Remittance(environment);
     <td>Get Account Balance In Specific Currency</td>
     <td><a href="docs/disbursement/getAccountBalanceInSpecificCurrency.Readme.md">Get Account Balance In Specific Currency</a></td>
     <td>getAccountBalanceInSpecificCurrency</td>
-    <td>String currency</td>
+    <td>currency: string</td>
   </tr>
 </tbody>
 </table>
@@ -313,36 +313,36 @@ let remittance = new momoApi.Remittance(environment);
     <td rowspan="2">Transfer</td>
     <td><a href="docs/remittance/transfer.Readme.md">Transfer</a></td>
     <td>transfer</td>
-    <td>Transfer transfer</td>
+    <td>reference: string, options: object</td>
   </tr>
   <tr>
     <td><a href="docs/remittance/getTransferStatus.Readme.md">Get Transfer Status</a></td>
     <td>getTransferStatus</td>
-    <td>String referenceId</td>
+    <td>referenceId: string</td>
   </tr>
   <tr>
     <td>Request To Pay Delivery Notification</td>
     <td><a href="docs/remittance/requestToPayDeliveryNotification.Readme.md">Request To Pay Delivery Notification</a></td>
     <td>requestToPayDeliveryNotification</td>
-    <td>String referenceId, DeliveryNotification deliveryNotification, (optional)String deliveryNotificationHeader</td>
+    <td>referenceId: string, message: string, language: string|optional</td>
   </tr>
   <tr>
     <td>Get UserInfo With Consent</td>
     <td><a href="docs/remittance/getUserInfoWithConsent.Readme.md">Get UserInfo With Consent</a></td>
     <td>getUserInfoWithConsent</td>
-    <td>AccountHolder accountHolder, String scope, AccessType accessType</td>
+    <td>msisdn: string, scope: string|optional|default:profile, access_type: string|optional|default:offline, callbackURL: string|optional</td>
   </tr>
   <tr>
     <td>Get Basic Userinfo</td>
     <td><a href="docs/remittance/getBasicUserinfo.Readme.md">Get Basic Userinfo</a></td>
     <td>getBasicUserinfo</td>
-    <td>String msisdn</td>
+    <td>msisdn: string</td>
   </tr>
   <tr>
     <td>Validate Account Holder Status</td>
     <td><a href="docs/remittance/validateAccountHolderStatus.Readme.md">Validate Account Holder Status</a></td>
     <td>validateAccountHolderStatus</td>
-    <td>AccountHolder accountHolder</td>
+    <td>accountHolderID: string, accountHolderType: string</td>
   </tr>
   <tr>
     <td>Get Account Balance</td>
@@ -355,9 +355,39 @@ let remittance = new momoApi.Remittance(environment);
 
 ## Testing
 
+It is not mandatory to fork this repository for using the MoMoAPI SDK. You can refer Setting Up for configuring and working with SDK without forking this code.
 
-### Unit tests
+For contributing or referring the samples, you can fork/refer this repository.
+
+To run integration tests using your api key, consumer secret and subscription key, clone this repository and run the following command:
+
+So, there are actually two different types of tests, and we're going to try them all. The first is a unit test. The second type of test is an integration test.
+
+Before running a test, update config and rename `.env.sample` to `.env`.
+
+```
+$ npm install
+$ npm run test
+```
+
+### Unit Test
+
+In a unit test, you test one specific function on a class. You call a function with some input, and test the return value. Each unit test is done in isolation. If, for example, a class needs a simulator connection, we're actually going to fake that simulator connection so that we can focus on testing just the logic of the class itself.
+
+```
+$ npm install
+$ npm run test test/unit
+```
+
+### Integration Test
+
+An integration test is basically a unit test: you call functions and check their return values. But now, instead of faking the simulator connection, you'll use the real simulator connection.
+
+```
+$ npm install
+$ npm run test test/integration
 
 
 ## Samples
 
+The sample code snippets are not completely independent and self-contained. You can analyze them to get an understanding of how a particular method can be implemented in your application. Sample code snippets can be found [here](/code-snippets). You can copy the snippets and execute them by adding the required dependencies.
