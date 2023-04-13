@@ -38,7 +38,7 @@ npm install momoapi-nodejs-sdk
 ## Setting Up
 
 After you install the SDK, make it available to your app and configure your environment.
-Configuration details include either sandbox for testing or other for production as env type, and your api key, subscription key, reference id, security option and callback url for your app.
+Configuration details include either sandbox for testing or the identifier of the EWP system for production as env type, and your api key, subscription key, reference id, security option and callback url for your app.
 
 In the directory where you installed the SDK, include this code to make the SDK available and configure your environment with your application credentials for sandbox and live environments in the Developer Dashboard.
 

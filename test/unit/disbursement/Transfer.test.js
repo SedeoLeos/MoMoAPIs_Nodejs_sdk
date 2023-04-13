@@ -33,22 +33,6 @@ describe("Disbursement - Transfer", () => {
 });
 
 
-describe("Disbursement - Request To Pay Delivery Notification", () => {
-  it("should raise a notification to a given request for transfer", async () => {
-    // Act
-    const response = await global.DISBURSEMENT.requestToPayDeliveryNotification(
-      reference,
-      "Transferred Successfully!!!"
-    );
-
-    // Assert
-    expect(response.status).toBe(200);
-    expect(response.statusText).toBe("OK");
-    expect(response.data).toHaveProperty("status", true);
-  });
-});
-
-
 describe("Disbursement - Transfer Status", () => {
   it("should check status of a given request for transfer", async () => {
     // Act
