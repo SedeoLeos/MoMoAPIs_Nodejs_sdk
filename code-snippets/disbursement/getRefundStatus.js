@@ -1,26 +1,26 @@
 /**
  * Set up your function to be invoked
  */
-const Environment = new mmapi.Environment(
+const environment = new momoApi.core.Environment(
   process.env.X_REFERENCE_ID,
   process.env.ENV_TYPE,
   process.env.CALLBACK_URL,
   {
-    product_type: "remittance",
-    api_key: process.env.API_KEY_REMITTANCE,
-    subscription_key: process.env.SUBSCRIPTION_KEY_REMITTANCE,
-    subscription_key2: process.env.SUBSCRIPTION_KEY_REMITTANCE_2,
+    product_type: "disbursement",
+    api_key: process.env.API_KEY_DISBURSEMENT,
+    subscription_key: process.env.SUBSCRIPTION_KEY_DISBURSEMENT,
+    subscription_key2: process.env.SUBSCRIPTION_KEY_DISBURSEMENT_2,
   }
 );
 
-const GetBasicUserInfo = async (msisdn, debug = false) => {
+const getRefundStatus = async (reference, debug = false) => {
   try {
     /**
      * Construct a request object and set desired parameters
      */
-    const remittance = new mmapi.Remittance(Environment); 
-    
-    const response = await remittance.getBasicUserInfo(msisdn);
+    const disbursement = new momoApi.Disbursement(environment);
+
+    const response = await disbursement.getRefundStatus(reference);
 
     if (debug) {
       console.log("Response Status: ", response.status);
@@ -49,6 +49,4 @@ const GetBasicUserInfo = async (msisdn, debug = false) => {
 /**
  * Invoke the function
  */
-const msidsn = "0248888736";
-
-GetBasicUserInfo(msidsn, false, true);
+getRefundStatus(reference, false);

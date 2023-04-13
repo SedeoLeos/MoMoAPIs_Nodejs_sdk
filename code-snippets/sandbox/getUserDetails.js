@@ -1,29 +1,25 @@
 /**
  * Set up your function to be invoked
  */
- const Environment = new mmapi.Environment(
+ const environment = new momoApi.core.Environment(
     process.env.X_REFERENCE_ID,
     process.env.ENV_TYPE,
     process.env.CALLBACK_URL,
     {
-      product_type: "remittance",
-      api_key: process.env.API_KEY_REMITTANCE,
+      product_type: "remittance", // collection, disbursement or remittance
       subscription_key: process.env.SUBSCRIPTION_KEY_REMITTANCE,
       subscription_key2: process.env.SUBSCRIPTION_KEY_REMITTANCE_2,
     }
   );
   
-  const ValidateAccountHolderStatus = async (requestObject, debug = false) => {
+  const getUserDetails = async (reference, debug = false) => {
     try {
       /**
        * Construct a request object and set desired parameters
        */
-      const remittance = new mmapi.Remittance(Environment); 
+      const mmSandbox = new momoApi.core.Sandbox(environment); 
       
-      const response = await remittance.ValidateAccountHolderStatus(
-        requestObject.accountHolderId, 
-        requestObject.accountHolderIdType
-      );
+      const response = await mmSandbox.getUserDetails(reference);
   
       if (debug) {
         console.log("Response Status: ", response.status);
@@ -52,9 +48,4 @@
   /**
    * Invoke the function
    */
-  const requestObject = {
-    accountHolderId: "0248888736",
-    accountHolderIdType: "msisdn"
-  };
-  
-  ValidateAccountHolderStatus(requestObject);
+  getUserDetails(reference, false);
