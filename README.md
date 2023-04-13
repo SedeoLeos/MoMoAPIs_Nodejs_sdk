@@ -6,7 +6,7 @@ Please refer to the following documentation for installation instructions and us
 
 - [API Documentation](https://momodeveloper.mtn.com/api-documentation)
 - [NodeJS SDK Documentation](docs/)
-- [NodeJS SDK Sample Codes](samples/src/)
+- [NodeJS SDK Sample Codes](code-snippets/)
 
 ## Index
 
