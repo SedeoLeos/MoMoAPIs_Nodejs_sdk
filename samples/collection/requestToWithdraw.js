@@ -129,7 +129,7 @@ if (require.main === module) {
       await requestToWithdrawV1(referenceV2, options, true);
     } catch (err) {}
     try {
-      console.log("GET Fetch status of the request to withdraw version 1");
+      console.log("GET Fetch status of the request to withdraw version 2");
       await requestToWithdrawTransactionStatus(referenceV2, true);
     } catch (err) {}
   })();
