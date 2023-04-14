@@ -390,4 +390,22 @@ $ npm run test test/integration
 
 ## Samples
 
-The sample code snippets are not completely independent and self-contained. You can analyze them to get an understanding of how a particular method can be implemented in your application. Sample code snippets can be found [here](/code-snippets). You can copy the snippets and execute them by adding the required dependencies.
+The sample code snippets are all completely independent and self-contained. You can analyze them to get an understanding of how a particular method can be implemented in your application. Sample code snippets can be found [here](/samples).
+
+To test interactions before integration by by trying out different samples, clone this repository and run the following command:
+
+Note: Update the samples/test_harness.js with your sandbox and product credentials or all the credentials as environment variable while executing the samples. A sample environment file can be found in the root. Before running, update config and rename `.env.sample` to `.env`.
+
+**To run all request methods for various collections (sanbox, collection, disbursement or remittance, etc)**
+
+```
+$ npm install
+$ node samples/sanbox/runAll.js
+```
+
+**To run individual request for methods different collections (sanbox, collection, disbursement or remittance, etc)**
+
+```
+$ npm install
+$ node samples/disbursement/getAccountBalance.js
+```
