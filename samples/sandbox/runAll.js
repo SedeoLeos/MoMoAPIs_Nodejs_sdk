@@ -7,7 +7,7 @@ let callbackUrl = require("../test_harness").callbackUrl;
 let reference = require("../test_harness").sandboxXReferenceId;
 
 const usecase1 = async () => {
-  console.log("Setup an Account Link...");
+  console.log("Setup sandbox...");
 
   console.log("POST Create a sandbox user");
   await createUser(callbackUrl, true);
